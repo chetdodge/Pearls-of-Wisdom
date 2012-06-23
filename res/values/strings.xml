@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pearls of Wisdom</string>
+    <string name="TypingFeature">Testing Out the typing feature in Android</string>
+	<string name="enter_question">What are the Pearls of Wisdom for today?</string>
+    <string name="answer"></string>
+    <string name="what_is_the_answer">What is the answer?</string>
+	
+</resources>
