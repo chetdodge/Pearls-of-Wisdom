@@ -8,8 +8,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
-
-
 public class HelloWorldActivity extends Activity {
 
 	TextView response;
@@ -47,10 +45,6 @@ public class HelloWorldActivity extends Activity {
 			
 	};
 
-
-
-	/** Called when the activity is first created. */
-	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
@@ -60,9 +54,6 @@ public class HelloWorldActivity extends Activity {
 	protected void onResume(){
 		super.onResume();
 
-
-
-
 	}
 
 	public void onPause(){
@@ -71,10 +62,8 @@ public class HelloWorldActivity extends Activity {
 	}
 
 
-
 	private final Runnable mUpdateUITimerTask = new Runnable() {
 		public void run() {
-			// do whatever you want to change here, like:
 
 				TextView response = (TextView)findViewById(R.id.textView2);
 
@@ -83,44 +72,32 @@ public class HelloWorldActivity extends Activity {
 				button_pressed = 0;
 		}
 	};
+	
 	private final Handler mHandler = new Handler();
 
 	public void myClickHandler(View view) {
 
 		switch (view.getId()) {
 
-		// The user has pressed the question button
-		case R.id.button1:
-		{
-			if(button_pressed == 0){
-				Random gen = new Random();
-				int r = gen.nextInt(25);
-					
-				TextView response = (TextView)findViewById(R.id.textView2);
-				//String test = diff_response[r%8];
-				response.setText(diff_response[r]);
-				//Start the time for turn off
-				mHandler.removeCallbacks(mUpdateUITimerTask);
-				mHandler.postDelayed(mUpdateUITimerTask, 4 * 1000);
+			case R.id.button1:
+			{
+				if(button_pressed == 0){
+					Random gen = new Random();
+					int r = gen.nextInt(25);
 
-				//button_pressed = 1;
+					TextView response = (TextView)findViewById(R.id.textView2);
+
+					response.setText(diff_response[r]);
+
+					mHandler.removeCallbacks(mUpdateUITimerTask);
+					mHandler.postDelayed(mUpdateUITimerTask, 4 * 1000);
+
+				}
+
+				return;
 			}
-			else if(button_pressed == 1){
-
-
-			}
-
-			return;
 		}
-
-
-		}
-
-	}
-
-
-
-	//End of Class   
+	}   
 }
 
 
